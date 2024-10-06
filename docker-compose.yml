@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  nginx-react:
+    image: reactapp:latest
+    container_name: myreactapp
+    build:
+      context: ./bc-app-master
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+    volumes:
+      - ./bc-app-master:/app
+      - /app/node_modules
+    networks:
+      - mynetwork
+
+  myapi:
+    build:
+      context: ./MyApi
+      dockerfile: Dockerfile
+    ports:
+      - "5049:8080"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

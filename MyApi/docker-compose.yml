@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  myapi:
+    build:
+      context: .  # Dockerfile'ın bulunduğu dizin
+      dockerfile: Dockerfile  # Dockerfile'ın adı
+    container_name: myapi
+    ports:
+      - "5049:8080"  # Dış port:İç port (Konteyner içindeki port)
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
