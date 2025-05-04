@@ -25,14 +25,14 @@ const Details = () => {
     if (loading) return <p>Loading...</p>;
     if (!participant) return <p>No participant found.</p>;
 
-    const className = participant.willYouAttend ? 'primary' : 'danger';
+    const className = participant.DoYouAttend ? 'primary' : 'danger';
 
     return (
         <main className="text-center">
             <h1 className="h4">Participant Detail</h1>
             <p>
                 <span className={`badge text-bg-${className}`}>
-                    {participant.willYouAttend ? 'Joining' : 'Not Joining'}
+                    {participant.DoYouAttend ? 'Joining' : 'Not Joining'}
                 </span>
             </p>
             <p><strong>Name and Surname:</strong> {participant.name}</p>
