@@ -6,7 +6,7 @@ const Register = () => {
         name: '',
         phone: '',
         email: '',
-        willYouAttend: ''
+        DoYouAttend: ''
     });
 
     // State for participants
@@ -20,7 +20,7 @@ const Register = () => {
             .then(data => {
                 setParticipants(data);
                 // Count the number of participants who will attend
-                const count = data.filter(participant => participant.willYouAttend).length;
+                const count = data.filter(participant => participant.DoYouAttend).length;
                 setAttendanceCount(count);
             })
             .catch(error => {
@@ -42,11 +42,11 @@ const Register = () => {
         e.preventDefault();
 
         // Perform validation if needed
-        if (formData.name && formData.phone && formData.email && formData.willYouAttend) {
+        if (formData.name && formData.phone && formData.email && formData.DoYouAttend) {
             // Convert string to boolean
             const updatedFormData = {
                 ...formData,
-                willYouAttend: formData.willYouAttend === 'true'
+                DoYouAttend: formData.DoYouAttend === 'true'
             };
 
             fetch('http://localhost:5049/api/meeting/apply', { // Adjust the URL to your endpoint
@@ -68,7 +68,7 @@ const Register = () => {
             .then(response => response.json())
             .then(data => {
                 setParticipants(data);
-                const count = data.filter(participant => participant.willYouAttend).length;
+                const count = data.filter(participant => participant.DoYouAttend).length;
                 setAttendanceCount(count);
             })
             .catch(error => {
@@ -145,8 +145,8 @@ const Register = () => {
                     </thead>
                     <tbody>
                         {participants.map(participant => {
-                            const status = participant.willYouAttend ? "Yes" : "No";
-                            const rowClass = participant.willYouAttend ? "table-success" : "table-danger";
+                            const status = participant.DoYouAttend ? "Yes" : "No";
+                            const rowClass = participant.DoYouAttend ? "table-success" : "table-danger";
                             return (
                                 <tr key={participant.id} className={rowClass}>
                                     <td>{participant.name}</td>
