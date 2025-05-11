@@ -6,7 +6,7 @@ const MeetingInfo = () => {
 
     useEffect(() => {
         // Fetch meeting info from the API
-        fetch('http://localhost:5049/api/meeting/info') // Ensure this matches the working Swagger URL
+        fetch('http://16.170.214.89:5049/api/meeting/info') // Ensure this matches the working Swagger URL
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
