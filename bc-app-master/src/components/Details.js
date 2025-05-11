@@ -10,7 +10,7 @@ const Details = () => {
     
     useEffect(() => {
         // Fetch participant details from the API
-        fetch(`http://localhost:5049/api/meeting/details/${id}`)
+        fetch(`http://16.170.214.89:5049/api/meeting/details/${id}`)
             .then(response => response.json())
             .then(data => {
                 setParticipant(data);

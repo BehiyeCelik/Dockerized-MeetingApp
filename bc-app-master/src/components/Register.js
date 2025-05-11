@@ -15,7 +15,7 @@ const Register = () => {
 
     // Fetch participants when component mounts
     useEffect(() => {
-        fetch('http://localhost:5049/api/meeting/list') // Adjust the URL to your endpoint
+        fetch('http://16.170.214.89:5049/api/meeting/list') // Adjust the URL to your endpoint
             .then(response => response.json())
             .then(data => {
                 setParticipants(data);
@@ -49,7 +49,7 @@ const Register = () => {
                 DoYouAttend: formData.DoYouAttend === 'true'
             };
 
-            fetch('http://localhost:5049/api/meeting/apply', { // Adjust the URL to your endpoint
+            fetch('http://16.170.214.89:5049/api/meeting/apply', { // Adjust the URL to your endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const Register = () => {
                 if (response.ok) {
                     alert('Registration successful!');
                     // Fetch the updated list of participants
-                    return fetch('http://localhost:5049/api/meeting/list');
+                    return fetch('http://16.170.214.89:5049/api/meeting/list');
                 } else {
                     alert('Failed to register. Please try again.');
                 }
