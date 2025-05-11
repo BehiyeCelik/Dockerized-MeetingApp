@@ -6,9 +6,9 @@ namespace MeetingApp.Models
 
         static Repository()
         {
-           _users.Add(new UserInfo() {Id=1, Name = "Chandler", Email = "abc@gmail.com", Phone = "11111", WillYouAttend=true }) ;
-           _users.Add (new UserInfo() {Id=2, Name = "Monica", Email = "abcd@gmail.com", Phone = "22222", WillYouAttend=false } );
-           _users.Add (new UserInfo() {Id=3, Name = "Joey", Email = "abce@gmail.com", Phone = "33333", WillYouAttend=true } );
+           _users.Add(new UserInfo() {Id=1, Name = "Chandler", Email = "abc@gmail.com", Phone = "11111", DoYouAttend=true }) ;
+           _users.Add (new UserInfo() {Id=2, Name = "Monica", Email = "abcd@gmail.com", Phone = "22222", DoYouAttend=false } );
+           _users.Add (new UserInfo() {Id=3, Name = "Joey", Email = "abce@gmail.com", Phone = "33333", DoYouAttend=true } );
         }
         public static List<UserInfo> Users {
             get 

@@ -22,7 +22,7 @@ namespace MeetingApp.Controllers
             if (ModelState.IsValid)
             {
                 Repository.CreateUser(model);
-                var userCount = Repository.Users.Count(info => info.WillYouAttend == true);
+                var userCount = Repository.Users.Count(info => info.DoYouAttend == true);
                 return Ok(new { Message = "Thank you for applying!", UserCount = userCount });
             }
             return BadRequest(ModelState);
@@ -52,12 +52,12 @@ namespace MeetingApp.Controllers
         [HttpGet("info")]
         public ActionResult Info()
         {
-            int userCount = Repository.Users.Count(info => info.WillYouAttend == true);
+            int userCount = Repository.Users.Count(info => info.DoYouAttend == true);
             var meetingInfo = new Meetinginfo
             {
                 Id = 1,
                 Location = "Gdansk, Old Town",
-                Date = new DateTime(2024, 09, 17, 20, 0, 0),
+                Date = new DateTime(2025, 06, 10, 20, 0, 0),
                 NumberOfPeople = userCount
             };
             return Ok(meetingInfo);

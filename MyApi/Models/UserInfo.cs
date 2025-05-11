@@ -12,6 +12,6 @@ namespace MeetingApp.Models{
         [EmailAddress(ErrorMessage = "Incorrect email address!")]
         public string? Email { get; set; }
         [Required(ErrorMessage = "Please select your participation status.")]
-        public bool? WillYouAttend { get; set; }
+        public bool? DoYouAttend { get; set; }
     }
 }
