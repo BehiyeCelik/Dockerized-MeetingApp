@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MeetingApp.Models{
     public class UserInfo
@@ -12,6 +13,8 @@ namespace MeetingApp.Models{
         [EmailAddress(ErrorMessage = "Incorrect email address!")]
         public string? Email { get; set; }
         [Required(ErrorMessage = "Please select your participation status.")]
+
+        [JsonPropertyName("DoYouAttend")]
         public bool? DoYouAttend { get; set; }
     }
 }
